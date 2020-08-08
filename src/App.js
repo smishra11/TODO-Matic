@@ -31,18 +31,13 @@ class App extends Component {
     // console.log(newItem);
 
     const updatedItems = [...this.state.items, newItem];
+    console.log(updatedItems);
 
     this.setState({
       items: updatedItems,
       item: "",
       id: uuid(),
       editItem: false,
-    });
-  };
-
-  clearList = () => {
-    this.setState({
-      items: [],
     });
   };
 
@@ -55,7 +50,7 @@ class App extends Component {
     const filteredItems = this.state.items.filter((item) => item.id !== id);
 
     const selectedItem = this.state.items.find((item) => item.id === id);
-    console.log(selectedItem);
+    // console.log(selectedItem);
 
     this.setState({
       items: filteredItems,
@@ -81,7 +76,6 @@ class App extends Component {
             />
             <TodoList
               items={this.state.items}
-              clearList={this.clearList}
               handleDelete={this.handleDelete}
               handleEdit={this.handleEdit}
             />
