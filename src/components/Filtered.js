@@ -1,7 +1,11 @@
 import React, { Component } from "react";
 
-export default class Filtered extends Component {
+class Filtered extends Component {
   render() {
-    return <div></div>;
+    const { item } = this.props;
+    console.log(item);
+    return <h1>Hello from Filtered</h1>;
   }
 }
+
+export default Filtered;

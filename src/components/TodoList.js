@@ -43,3 +43,8 @@ export default class TodoList extends Component {
     );
   }
 }
+
+// items.map((item) => {
+//   // console.log(item);
+//   return <Filtered item={item} />;
+// });
