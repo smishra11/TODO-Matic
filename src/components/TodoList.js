@@ -42,8 +42,8 @@ export default class TodoList extends Component {
             <button
               className={
                 this.state.showAllClicked
-                  ? "btn btn-secondary"
-                  : "btn btn-outline-secondary"
+                  ? "btn btn-secondary td-btn"
+                  : "btn btn-outline-secondary td-btn"
               }
               onClick={() => this.showClicked("showall")}
             >
@@ -54,8 +54,8 @@ export default class TodoList extends Component {
             <button
               className={
                 this.state.showActiveClicked
-                  ? "btn btn-secondary"
-                  : "btn btn-outline-secondary"
+                  ? "btn btn-secondary td-btn"
+                  : "btn btn-outline-secondary td-btn"
               }
               onClick={() => this.showClicked("active")}
             >
@@ -66,8 +66,8 @@ export default class TodoList extends Component {
             <button
               className={
                 this.state.showCompletedClicked
-                  ? "btn btn-secondary"
-                  : "btn btn-outline-secondary"
+                  ? "btn btn-secondary td-btn"
+                  : "btn btn-outline-secondary td-btn"
               }
               onClick={() => this.showClicked("completed")}
             >

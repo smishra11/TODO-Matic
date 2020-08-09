@@ -1,4 +1,9 @@
-.btn {
+.td-btn {
   width: inherit;
   box-shadow: none !important;
+}
+
+.checksize {
+  height: 20px;
+  width: 20px;
 }
