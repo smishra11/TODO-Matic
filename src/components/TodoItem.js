@@ -7,10 +7,10 @@ export default class TodoItem extends Component {
       <li className="list-group-item text-capitalize d-flex justify-content-between my-2">
         <input
           type="checkbox"
-          className="form-check-input checksize"
+          className="form-check-input ml-1 checksize"
           onClick={handleComplete}
         />
-        <h6 className="mt-1">{title}</h6>
+        <h6 className="mt-1 ml-4">{title}</h6>
         <div className="todo-icon">
           <span className="mx-2 text-success btn" onClick={handleEdit}>
             <i className="fas fa-pen"></i>
