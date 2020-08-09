@@ -12,7 +12,7 @@ export default class TodoList extends Component {
     showCompletedClicked: false,
   };
   componentDidUpdate = (prevProps) => {
-    if (this.props.items.length != prevProps.items.length) {
+    if (this.props.items.length !== prevProps.items.length) {
       this.setState({
         itemData: this.props.items,
       });
@@ -33,7 +33,7 @@ export default class TodoList extends Component {
   };
 
   render() {
-    const { items, handleDelete, handleEdit, handleComplete } = this.props;
+    const { handleDelete, handleEdit, handleComplete } = this.props;
     const { itemData } = this.state;
     return (
       <>
