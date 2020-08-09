@@ -62,7 +62,7 @@ class App extends Component {
   };
 
   handleComplete = (id) => {
-    this.state.items.map((item) => {
+    this.state.items.forEach((item) => {
       if (item.id === id) {
         item.status === "completed"
           ? (item.status = "active")
