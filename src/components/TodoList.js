@@ -1,15 +1,17 @@
 import React, { Component } from "react";
 
 import TodoItem from "./TodoItem";
-// import Filtered from "./Filtered";'
 
 export default class TodoList extends Component {
   state = {
     clicked: "showall",
     itemData: [],
-    showAllClicked: false,
-    showActiveClicked: false,
-    showCompletedClicked: false,
+    buttonActive: "showall",
+    btnArray: [
+      { name: "Show All", value: "showall" },
+      { name: "Active", value: "active" },
+      { name: "Completed", value: "completed" },
+    ],
   };
   componentDidUpdate = (prevProps) => {
     if (this.props.items.length !== prevProps.items.length) {
@@ -29,51 +31,32 @@ export default class TodoList extends Component {
     this.setState({
       clicked: data,
       itemData: filterData,
+      buttonActive: data,
     });
   };
 
   render() {
     const { handleDelete, handleEdit, handleComplete } = this.props;
-    const { itemData } = this.state;
+    const { itemData, btnArray, buttonActive } = this.state;
     return (
       <>
         <div className="row">
-          <div className="col">
-            <button
-              className={
-                this.state.showAllClicked
-                  ? "btn btn-secondary td-btn"
-                  : "btn btn-outline-secondary td-btn"
-              }
-              onClick={() => this.showClicked("showall")}
-            >
-              Show All
-            </button>
-          </div>
-          <div className="col">
-            <button
-              className={
-                this.state.showActiveClicked
-                  ? "btn btn-secondary td-btn"
-                  : "btn btn-outline-secondary td-btn"
-              }
-              onClick={() => this.showClicked("active")}
-            >
-              Active
-            </button>
-          </div>
-          <div className="col">
-            <button
-              className={
-                this.state.showCompletedClicked
-                  ? "btn btn-secondary td-btn"
-                  : "btn btn-outline-secondary td-btn"
-              }
-              onClick={() => this.showClicked("completed")}
-            >
-              Completed
-            </button>
-          </div>
+          {btnArray.map((item) => {
+            return (
+              <div className="col" key={item.value}>
+                <button
+                  className={
+                    buttonActive === item.value
+                      ? "btn btn-secondary td-btn"
+                      : "btn btn-outline-secondary td-btn"
+                  }
+                  onClick={() => this.showClicked(item.value)}
+                >
+                  {item.name}
+                </button>
+              </div>
+            );
+          })}
         </div>
         {this.state.clicked.length > 0 && (
           <ul className="list-group my-5">
