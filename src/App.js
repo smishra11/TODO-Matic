@@ -13,6 +13,7 @@ class App extends Component {
     id: uuid(),
     item: "",
     editItem: false,
+    isComplete: false,
   };
 
   handleChange = (e) => {
@@ -24,14 +25,16 @@ class App extends Component {
   handleSubmit = (e) => {
     e.preventDefault();
 
+    if (this.state.item === "") {
+      return;
+    }
     const newItem = {
       id: this.state.id,
       title: this.state.item,
+      status: "active",
     };
-    // console.log(newItem);
 
-    const updatedItems = [...this.state.items, newItem];
-    console.log(updatedItems);
+    const updatedItems = [newItem, ...this.state.items];
 
     this.setState({
       items: updatedItems,
@@ -48,15 +51,26 @@ class App extends Component {
 
   handleEdit = (id) => {
     const filteredItems = this.state.items.filter((item) => item.id !== id);
-
     const selectedItem = this.state.items.find((item) => item.id === id);
-    // console.log(selectedItem);
 
     this.setState({
       items: filteredItems,
       item: selectedItem.title,
       editItem: true,
       id: id,
+    });
+  };
+
+  handleComplete = (id) => {
+    this.state.items.map((item) => {
+      if (item.id === id) {
+        item.status === "completed"
+          ? (item.status = "active")
+          : (item.status = "completed");
+      }
+    });
+    this.setState({
+      items: this.state.items,
     });
   };
 
@@ -78,6 +92,7 @@ class App extends Component {
               items={this.state.items}
               handleDelete={this.handleDelete}
               handleEdit={this.handleEdit}
+              handleComplete={this.handleComplete}
             />
           </div>
         </div>
