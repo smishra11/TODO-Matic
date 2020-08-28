@@ -2,6 +2,10 @@
 
 https://todo-matic.netlify.app
 
+## `App Preview`
+![Screenshot from 2020-08-29 00-35-01](https://user-images.githubusercontent.com/53392598/91606353-8a69b500-e98f-11ea-94f4-8a84f778b25b.png)
+
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
